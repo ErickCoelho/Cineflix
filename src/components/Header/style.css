@@ -1,0 +1,13 @@
+.HeaderBar{
+    height: 67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #C3CFD9;
+    color: #E8833A;
+    font-family: Roboto;
+    font-size: 34px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
