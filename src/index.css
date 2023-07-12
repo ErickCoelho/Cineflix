@@ -4,11 +4,11 @@
 
 body {
   background-color: #FAFAFA;
-  margin: 54px 0 0;
   font-family: 'Roboto', sans-serif;
   color: #262626;
   font-weight: 400;
   font-size: 16px;
+  margin: 67px 30px 0 30px;
 }
 
 .displayNone{

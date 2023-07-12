@@ -10,7 +10,6 @@ export default function Movies(){
         const promiseFilms = axios.get('https://mock-api.driven.com.br/api/v4/cineflex/movies');
         promiseFilms.then(response => {
             const data = response.data;
-            console.log(data);
     
             const movies = data.map(item => (
                     <MovieCard imgsrc={item.posterURL} />
@@ -19,15 +18,13 @@ export default function Movies(){
             setFilmsArray(movies);
         });
     
-        console.log('Teste1');
         console.log(filmsArray);
-        console.log('Teste2');
     }, []);
 
 
     return(
         <div className="container">
-            <div className='text displayNone'>Selecione o Filme</div>
+            <div className='text'>Selecione o Filme</div>
             <div className='containerMovieCards'>
                 {filmsArray}
             </div>

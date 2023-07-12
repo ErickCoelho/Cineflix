@@ -2,9 +2,10 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Movies from './components/Movies';
+import Sections from './components/Sections';
 
 function App() {
-  const [page, setPage] = useState('Movies');
+  const [page, setPage] = useState('Sections');
 
   return (
     <div className="App">
@@ -12,8 +13,8 @@ function App() {
       {page === 'Movies' &&
         <Movies />
       }
-      {page === 'div' &&
-        <div>OIIIII</div>
+      {page === 'Sections' &&
+        <Sections />
       }
     </div>
   ); 
