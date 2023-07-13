@@ -1,5 +1,4 @@
 import './style.css';
-import cover1 from '../../assets/img/cover1.png';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 

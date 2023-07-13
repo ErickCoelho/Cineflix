@@ -1,0 +1,121 @@
+.bodyContainer{
+    padding-bottom: 117px;
+}
+
+.footer{
+    height: 117px;
+    border: 1px solid #9EADBA;
+    background-color: #DFE6ED;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.footer .footerCard{
+    width: 64px;
+    height: 89px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+
+}
+
+.footer .footerCard img{
+    width: 48px;
+    height: 72px;
+    object-fit: cover;
+}
+
+.footer .footerText{
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.SeatsContainer{
+    font-size: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.SeatsContainer .seat{
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 9px 4px;
+    font-size: 11px;
+}
+
+.seatCategoryContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.seatCategoryContainer .seatCategory{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33%;
+}
+
+.seatCategoryContainer .seatCategory .seat{
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 9px 4px;
+    font-size: 11px;
+}
+
+.seat{
+    border: 1px solid #808F9D;
+    background: #C3CFD9;
+}
+
+.seat.selected{
+    border: 1px solid #1AAE9E;
+    background: #8DD7CF;
+}
+
+.seat.unavailable{
+    border: 1px solid #F7C52B;
+    background: #FBE192;
+}
+
+.seatCategoryContainer .seatCategory .seatText{
+    font-size: 13px;
+}
+
+.SectionDayContainer{
+    margin-bottom: 30px;
+}
+
+.TimeContainer{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.TimeContainer .Time{
+    width: 82px;
+    height: 43px;
+    margin: 5px 9px 5px 0;
+    background-color: #E8833A;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+}

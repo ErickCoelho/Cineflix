@@ -3,9 +3,10 @@ import './App.css';
 import Header from './components/Header';
 import Movies from './components/Movies';
 import Sections from './components/Sections';
+import Seats from './components/Seats';
 
 function App() {
-  const [page, setPage] = useState('Sections');
+  const [page, setPage] = useState('Seats');
 
   return (
     <div className="App">
@@ -15,6 +16,9 @@ function App() {
       }
       {page === 'Sections' &&
         <Sections />
+      }
+      {page === 'Seats' &&
+        <Seats />
       }
     </div>
   ); 

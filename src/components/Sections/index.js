@@ -15,6 +15,7 @@ export default function Sections(){
         promiseFilmTime.then(response => {
             const data = response.data;
             //data = response.data;
+            console.log(data);
     
             const moviesTimes = data.days.map(item => (
                     <SectionDay date = {item.date} weekday = {item.weekday} showtimes = {item.showtimes}/>
