@@ -8,6 +8,7 @@ export default function Seats(){
     const [seatsArray, setSeatsArray] = useState([]);
     const [filmURL, setFilmURL] = useState("");
     const [filmTitle, setFilmTitle] = useState("");
+    const [filmDate, setFilmDate] = useState("");
     const sectionId = 17;
 
 
@@ -28,6 +29,7 @@ export default function Seats(){
 
             setFilmTitle(data.movie.title);
             setFilmURL(data.movie.posterURL);
+            setFilmDate(data.day.weekday + " - " + data.day.date);
         });
         
     }, []);
@@ -60,46 +62,32 @@ export default function Seats(){
 
             <div className='fieldsContainer'>
                 <div>Nome do comprador:</div>
-                <input></input>
+                <input
+                    type='text'
+                    id='name'
+                    placeholder='Digite seu nome...'
+                ></input>
 
                 <div htmlFor="cpfInput">CPF do comprador:</div>
                 <InputMask
                     id="cpfInput"
                     mask="999.999.999-99"
                     maskChar="_"
-                    placeholder="___.___.___-__"
+                    placeholder="Digite seu CPF..."
                 />
             </div>
+
+            <button>Reservar assento(s)</button>
 
 
             <div className='footer'>
                 <div className='footerCard'>
                     <img src={filmURL} />
                 </div>
-                <div className='footerText'>{filmTitle}</div>
-            </div>
-        </div>
-    );
-}
-
-
-function SectionDay({date, weekday, showtimes}){
-    const [showTime, setShowTime] = useState([]);
-    
-    useEffect(() => {
-        const showTimeTemp = showtimes ? showtimes.map(item => (
-                <div className="Time">{item.name}</div>
-            )
-        ) : null;
-        setShowTime(showTimeTemp);
-        console.log(showTime);
-    }, []);
-
-    return(
-        <div className="SectionDayContainer">
-            <div>{weekday} - {date}</div>
-            <div className="TimeContainer">
-                {showTime}
+                <div className='footerTextContainer'>
+                    <div className='footerText'>{filmTitle}</div>
+                    <div className='footerText'>{filmDate}</div>
+                </div>
             </div>
         </div>
     );

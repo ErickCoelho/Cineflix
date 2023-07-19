@@ -1,5 +1,8 @@
 .bodyContainer{
     padding-bottom: 117px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer{
@@ -40,6 +43,7 @@
     font-size: 20px;
     display: flex;
     flex-wrap: wrap;
+    width: 340px;
     justify-content: space-between;
 }
 
@@ -58,6 +62,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
+    width: 80%;
 }
 
 .seatCategoryContainer .seatCategory{
@@ -97,25 +102,41 @@
     font-size: 13px;
 }
 
-.SectionDayContainer{
-    margin-bottom: 30px;
+.fieldsContainer{
+    width: 100%;
+    margin-top: 35px;
 }
 
-.TimeContainer{
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.TimeContainer .Time{
-    width: 82px;
-    height: 43px;
-    margin: 5px 9px 5px 0;
-    background-color: #E8833A;
-    border-radius: 3px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
+.fieldsContainer div{
+    margin-top: 10px;
+    color: #293845;
     font-size: 18px;
+}
+
+.fieldsContainer input{
+    height: 51px;
+    width: 100%;
+    max-width: 400px;
+    margin-top: 5px;
+    border-radius: 3px;
+    border: 1px solid #D4D4D4;
+}
+
+.fieldsContainer input::placeholder{
+    color: #AFAFAF;
+    font-size: 18px;
+    font-style: italic;
+    padding-left: 20px;
+}
+
+button{
+    width: 225px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: #E8833A;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    margin-top: 30px;
 }
