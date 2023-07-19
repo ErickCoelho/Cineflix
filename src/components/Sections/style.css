@@ -1,5 +1,10 @@
 .bodyContainer{
     padding-bottom: 117px;
+    width: 100%;
+}
+
+.SectionsContainer{
+    width: 100%;
 }
 
 .footer{

@@ -1,0 +1,36 @@
+.bodyContainer{
+    padding-bottom: 117px;
+}
+
+.text{
+    height: fit-content;
+    margin: 50px 0 20px 0;
+    width: 150px;
+    text-align: center;
+    color: #247A6B;
+    font-weight: 700;
+}
+
+.infoContainer{
+    width: 100%;
+    margin-top: 35px;
+    font-size: 22px;
+    color: #293845;
+}
+
+.infoContainer .title{
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+button{
+    width: 225px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 3px;
+    background: #E8833A;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    margin-top: 80px;
+}
