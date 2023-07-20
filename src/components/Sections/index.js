@@ -1,9 +1,9 @@
 import './style.css';
 import { useEffect, useState } from "react";
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-export default function Sections(){
+export default function Sections() {
 
     const [filmsTimeArray, setFilmsTimeArray] = useState([]);
     const [filmURL, setFilmURL] = useState("");
@@ -18,10 +18,10 @@ export default function Sections(){
             const data = response.data;
             //data = response.data;
             console.log(data);
-    
+
             const moviesTimes = data.days.map(item => (
-                    <SectionDay date = {item.date} weekday = {item.weekday} showtimes = {item.showtimes}/>
-                )
+                <SectionDay date={item.date} weekday={item.weekday} showtimes={item.showtimes} />
+            )
             );
             setFilmsTimeArray(moviesTimes);
             setFilmTitle(data.title);
@@ -29,10 +29,10 @@ export default function Sections(){
         });
 
         console.log(filmsTimeArray);
-        
+
     }, []);
 
-    return(
+    return (
         <div className='bodyContainer'>
             <div className='text'>Selecione o Horário</div>
             <div className="SectionsContainer">
@@ -49,19 +49,23 @@ export default function Sections(){
 }
 
 
-function SectionDay({date, weekday, showtimes}){
+function SectionDay({ date, weekday, showtimes }) {
     const [showTime, setShowTime] = useState([]);
-    
+
     useEffect(() => {
         const showTimeTemp = showtimes ? showtimes.map(item => (
-                <div className="Time">{item.name}</div>
-            )
+            <Link to={`/seats/${item.id}`} className='customLink'>
+                <div className="Time" key={item.id}>
+                    {item.name}
+                </div>
+            </Link>
+        )
         ) : null;
         setShowTime(showTimeTemp);
         console.log(showTime);
     }, []);
 
-    return(
+    return (
         <div className="SectionDayContainer">
             <div>{weekday} - {date}</div>
             <div className="TimeContainer">
