@@ -17,7 +17,7 @@ export default function Sections() {
 
     return (
         <div className='bodyContainer'>
-            <div className='text'>Pedido feito com sucesso!</div>
+            <div className='success text'>Pedido feito com sucesso!</div>
 
             <div className='infoContainer'>
                 <div className='title'>Filme e Seção</div>

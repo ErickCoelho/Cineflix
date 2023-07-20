@@ -1,13 +1,15 @@
 import './style.css';
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function Sections(){
 
     const [filmsTimeArray, setFilmsTimeArray] = useState([]);
     const [filmURL, setFilmURL] = useState("");
     const [filmTitle, setFilmTitle] = useState("");
-    const filmId = 2;
+    //const filmId = 2;
+    const { filmId } = useParams();
 
 
     useEffect(() => {

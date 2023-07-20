@@ -2,6 +2,7 @@ import './style.css';
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import InputMask from 'react-input-mask';
+import { useParams } from 'react-router-dom';
 
 export default function Seats(){
 
@@ -9,7 +10,8 @@ export default function Seats(){
     const [filmURL, setFilmURL] = useState("");
     const [filmTitle, setFilmTitle] = useState("");
     const [filmDate, setFilmDate] = useState("");
-    const sectionId = 17;
+    //const sectionId = 17;
+    const { sectionId } = useParams();
 
 
     useEffect(() => {
