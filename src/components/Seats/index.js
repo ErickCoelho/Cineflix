@@ -31,7 +31,7 @@ export default function Seats(){
 
             setFilmTitle(data.movie.title);
             setFilmURL(data.movie.posterURL);
-            setFilmDate(data.day.weekday + " - " + data.day.date);
+            setFilmDate(data.day.weekday + " - " + data.name);
         });
         
     }, []);

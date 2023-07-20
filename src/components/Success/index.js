@@ -38,7 +38,7 @@ export default function Sections() {
                 <div>CPF: {cpf}</div>
             </div>
 
-            <button>Voltar pra Home</button>
+            <button className='successPageButtom'>Voltar pra Home</button>
         </div>
     );
 }
