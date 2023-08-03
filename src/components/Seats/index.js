@@ -14,21 +14,48 @@ export default function Seats() {
     const { sectionId } = useParams();
     const [selectedSeats, setSelectedSeats] = useState([]);
 
-    const handleSeatClick = (itemName, itemIsAvailable) => {
-        if(itemIsAvailable){
-            if (selectedSeats.includes(itemName)) {
+    const infos = {
+        ids: selectedSeats.map(item => (
+            parseInt(item)
+        )),
+        name: "",
+        cpf: ""
+    };
+
+    const handleSeatClick = (itemId, itemName, itemIsAvailable) => {
+        if (itemIsAvailable) {
+            if (selectedSeats.includes(itemId)) {
                 // Remove o assento do array de assentos selecionados
-                setSelectedSeats(selectedSeats.filter(seat => seat !== itemName));
+                setSelectedSeats(selectedSeats.filter(seat => seat !== itemId));
                 console.log("remove " + itemName);
             } else {
                 // Adiciona o assento ao array de assentos selecionados
-                setSelectedSeats([...selectedSeats, itemName]);
+                setSelectedSeats([...selectedSeats, itemId]);
                 console.log("add " + itemName);
             }
             console.log(selectedSeats);
-        } 
+        }
         else
             alert(`O assento ${itemName} está indisponível!`);
+    };
+
+
+
+    const reservarAssentos = () => {
+        console.log(infos);
+
+        if(infos.name !== "" && infos.cpf !== ""){
+            axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", infos)
+            .then(response => {alert("Sucesso na reserva!")})
+            .catch(error => {alert("Ocorreu um erro na reserva!")});
+
+            setSeatsArray([]);
+            infos.name = "";
+            infos.cpf = "";
+        }
+        else{
+            alert("Preencha os campos Nome e CPF!");
+        }
     };
 
 
@@ -45,9 +72,9 @@ export default function Seats() {
                 .filter(item => item.id > 16000)
                 .map(item => (
                     <div
-                        className={`seat ${item.isAvailable ? '' : 'unavailable'} ${selectedSeats.includes(item.name) ? 'selected' : ''}`}
+                        className={`seat select ${item.isAvailable ? '' : 'unavailable'} ${selectedSeats.includes(item.name) ? 'selected' : ''}`}
                         key={item.id}
-                        onClick={() => handleSeatClick(item.name, item.isAvailable)}
+                        onClick={() => handleSeatClick(item.id, item.name, item.isAvailable)}
                     >
                         {item.name}
                     </div>
@@ -94,6 +121,7 @@ export default function Seats() {
                     type='text'
                     id='name'
                     placeholder='Digite seu nome...'
+                    onChange={(event) => infos.name = event.target.value}
                 ></input>
 
                 <div htmlFor="cpfInput">CPF do comprador:</div>
@@ -102,10 +130,11 @@ export default function Seats() {
                     mask="999.999.999-99"
                     maskChar="_"
                     placeholder="Digite seu CPF..."
+                    onChange={(event) => infos.cpf = event.target.value.replace(/\D/g, '')}
                 />
             </div>
 
-            <button>Reservar assento(s)</button>
+            <button onClick={() => reservarAssentos()}>Reservar assento(s)</button>
 
 
             <div className='footer'>
