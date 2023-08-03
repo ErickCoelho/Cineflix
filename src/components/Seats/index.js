@@ -143,7 +143,7 @@ export default function Seats() {
                 />
             </div>
 
-            <button onClick={() => reservarAssentos()}>Reservar assento(s)</button>
+            <button onClick={() => reservarAssentos()} style={{ cursor: 'pointer' }}>Reservar assento(s)</button>
 
 
             <div className='footer'>
