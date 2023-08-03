@@ -1,14 +1,17 @@
 import './style.css';
+import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Sections() {
+    const location = useLocation();
+    const infos = location.state?.infos || {};
 
 
-    const filmTitle = "Enola Holmes";
-    const filmDate = "23/06/2022";
-    const fimlHour = "15:00";
-    const filmSeats = [1, 2, 3];
-    const name = "Marcelo Dias Santos"
-    const cpf = "000.000.000-00";
+    const filmTitle = location.state?.filmTitle || "Título não especificado";
+    const filmDate = location.state?.filmDate || "Data e horário não especificados";
+    const filmSeats = location.state?.selectedSeatsName || [];
+    const name = infos.name;
+    const cpf = infos.cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
 
     const filmSeatsArray = filmSeats.map(element => (
         <div>Assento {element}</div>
@@ -22,7 +25,7 @@ export default function Sections() {
             <div className='infoContainer'>
                 <div className='title'>Filme e Seção</div>
                 <div className='description'>{filmTitle}</div>
-                <div>{filmDate} {fimlHour}</div>
+                <div>{filmDate}</div>
             </div>
 
             <div className='infoContainer'>
@@ -38,7 +41,9 @@ export default function Sections() {
                 <div>CPF: {cpf}</div>
             </div>
 
-            <button className='successPageButtom'>Voltar pra Home</button>
+            <Link to={`/`}>
+                <div className='successPageButtom'>Voltar pra Home</div>
+            </Link>
         </div>
     );
 }

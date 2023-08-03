@@ -2,7 +2,8 @@ import './style.css';
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import InputMask from 'react-input-mask';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import Success from '../Success';
 
 export default function Seats() {
 
@@ -13,6 +14,8 @@ export default function Seats() {
     //const sectionId = 17;
     const { sectionId } = useParams();
     const [selectedSeats, setSelectedSeats] = useState([]);
+    const [selectedSeatsName, setSelectedSeatsName] = useState([]);
+    const navigate = useNavigate();
 
     const infos = {
         ids: selectedSeats.map(item => (
@@ -27,10 +30,12 @@ export default function Seats() {
             if (selectedSeats.includes(itemId)) {
                 // Remove o assento do array de assentos selecionados
                 setSelectedSeats(selectedSeats.filter(seat => seat !== itemId));
+                setSelectedSeatsName(selectedSeatsName.filter(seat => seat !== itemName));
                 console.log("remove " + itemName);
             } else {
                 // Adiciona o assento ao array de assentos selecionados
                 setSelectedSeats([...selectedSeats, itemId]);
+                setSelectedSeatsName([...selectedSeatsName, itemName]);
                 console.log("add " + itemName);
             }
             console.log(selectedSeats);
@@ -46,12 +51,16 @@ export default function Seats() {
 
         if(infos.name !== "" && infos.cpf !== ""){
             axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", infos)
-            .then(response => {alert("Sucesso na reserva!")})
+            .then(response => {
+                alert("Sucesso na reserva!");
+                console.log(infos);
+                navigate("/success", {state: { infos, selectedSeatsName, filmTitle, filmDate } });
+            })
             .catch(error => {alert("Ocorreu um erro na reserva!")});
 
-            setSeatsArray([]);
+            /*setSeatsArray([]);
             infos.name = "";
-            infos.cpf = "";
+            infos.cpf = "";*/
         }
         else{
             alert("Preencha os campos Nome e CPF!");
