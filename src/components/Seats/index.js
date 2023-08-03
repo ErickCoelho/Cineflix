@@ -72,7 +72,7 @@ export default function Seats() {
                 .filter(item => item.id > 16000)
                 .map(item => (
                     <div
-                        className={`seat select ${item.isAvailable ? '' : 'unavailable'} ${selectedSeats.includes(item.name) ? 'selected' : ''}`}
+                        className={`seat select ${item.isAvailable ? '' : 'unavailable'} ${selectedSeats.includes(item.id) ? 'selected' : ''}`}
                         key={item.id}
                         onClick={() => handleSeatClick(item.id, item.name, item.isAvailable)}
                     >
