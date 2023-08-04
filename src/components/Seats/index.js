@@ -52,8 +52,6 @@ export default function Seats() {
         if(infos.name !== "" && infos.cpf !== ""){
             axios.post("https://mock-api.driven.com.br/api/v4/cineflex/seats/book-many", infos)
             .then(response => {
-                alert("Sucesso na reserva!");
-                console.log(infos);
                 navigate("/success", {state: { infos, selectedSeatsName, filmTitle, filmDate } });
             })
             .catch(error => {alert("Ocorreu um erro na reserva!")});
@@ -73,9 +71,6 @@ export default function Seats() {
         promiseFilmTime.then(response => {
             const data = response.data;
             //data = response.data;
-            console.log(data);
-
-            console.log(selectedSeats);
 
             const seatsArrayTemp = data.seats
                 .filter(item => item.id > 16000)

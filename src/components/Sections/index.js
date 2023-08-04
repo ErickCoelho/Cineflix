@@ -16,8 +16,6 @@ export default function Sections() {
         const promiseFilmTime = axios.get('https://mock-api.driven.com.br/api/v4/cineflex/movies/' + filmId + '/showtimes');
         promiseFilmTime.then(response => {
             const data = response.data;
-            //data = response.data;
-            console.log(data);
 
             const moviesTimes = data.days.map(item => (
                 <SectionDay date={item.date} weekday={item.weekday} showtimes={item.showtimes} />
@@ -27,9 +25,6 @@ export default function Sections() {
             setFilmTitle(data.title);
             setFilmURL(data.posterURL);
         });
-
-        console.log(filmsTimeArray);
-
     }, []);
 
     return (
@@ -62,7 +57,6 @@ function SectionDay({ date, weekday, showtimes }) {
         )
         ) : null;
         setShowTime(showTimeTemp);
-        console.log(showTime);
     }, []);
 
     return (
